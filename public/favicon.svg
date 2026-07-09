@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#d946ef" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#05050a" />
+  <text x="32" y="41" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700" fill="url(#g)" text-anchor="middle">NZ</text>
+</svg>

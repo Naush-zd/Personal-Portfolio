@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/*
+  THEME tokens. Dark IDE is the default; light "docs" mode lives on :root.
+  NOTE: to keep existing var-based markup working, --color-ink is the page
+  fill / text-on-accent and --color-ivory is the primary text.
+  --color-espresso mirrors ivory for opacity utilities.
+*/
+@theme {
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Light "docs" theme (secondary). Neutral technical, single terracotta accent. */
+  --color-ink: #ffffff;
+  --color-ivory: #17181c;
+  --color-espresso: #17181c;
+  --color-surface: #ffffff;
+  --color-line: rgba(23, 24, 28, 0.1);
+  --color-accent: #d5603f;
+  --color-accent-dim: #b34a2c;
+  --color-champagne: #b3872f;
+  --color-muted: #63656d;
+}
+
+:root {
+  --fx-gradient: radial-gradient(120% 90% at 50% 0%, #f7f7f5 0%, #eeeeec 100%);
+  --page-bg: #f2f2f0;
+  --grid-line: rgba(23, 24, 28, 0.05);
+  /* Syntax tokens for code surfaces */
+  --tok-key: #d5603f;
+  --tok-str: #5f8a5a;
+  --tok-num: #a9772f;
+  --tok-fn: #3f6fb0;
+  --tok-com: #9a9ba1;
+}
+
+/* ── Default: dark IDE theme ── */
+html.cinema {
+  --color-ivory: #e9e8e4;
+  --color-ink: #f5f4f1;
+  --color-espresso: #e9e8e4;
+  --color-surface: #16171b;
+  --color-line: rgba(233, 232, 228, 0.1);
+  --color-accent: #e87a5b;
+  --color-accent-dim: #c85f42;
+  --color-champagne: #d8b26a;
+  --color-muted: #85868d;
+  --fx-gradient: radial-gradient(120% 90% at 50% 0%, #14151a 0%, #0b0b0e 100%);
+  --page-bg: #0a0a0c;
+  --grid-line: rgba(233, 232, 228, 0.045);
+  --tok-key: #e87a5b;
+  --tok-str: #9db07f;
+  --tok-num: #d8b26a;
+  --tok-fn: #6a97c9;
+  --tok-com: #6b6c73;
+}
+html.cinema body {
+  background-color: var(--page-bg);
+}
+html.cinema .bg-noise {
+  opacity: 0.05;
+}
+/* Flip literal frosted-white surfaces so text stays legible on dark */
+html.cinema .bg-white\/40 {
+  background-color: rgba(233, 232, 228, 0.04) !important;
+}
+html.cinema .bg-white\/50 {
+  background-color: rgba(233, 232, 228, 0.05) !important;
+}
+html.cinema .bg-white\/60 {
+  background-color: rgba(233, 232, 228, 0.07) !important;
+}
+html.cinema ::-webkit-scrollbar-track {
+  background: #141416;
+}
+html.cinema ::-webkit-scrollbar-thumb {
+  background: #33343a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #e6e6e3;
+}
+::-webkit-scrollbar-thumb {
+  background: #c2c2be;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+.text-champagne {
+  color: var(--color-champagne);
+}
+
+@keyframes aurora-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+  50% { transform: translate(4vw, 3vh) scale(1.12); opacity: 0.8; }
+}
+.animate-aurora {
+  animation: aurora-drift 26s ease-in-out infinite;
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.03;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Technical panel: subtle, sharp, hairline border */
+.glass {
+  background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px -32px rgba(0, 0, 0, 0.5);
+}
+
+.card-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-hover:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent);
+  box-shadow: 0 26px 60px -34px rgba(0, 0, 0, 0.55);
+}
+
+@keyframes bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+.animate-bounce-y {
+  animation: bounce-y 2.2s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Poster shine sweep for tilt cards */
+@keyframes card-shine {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+.group:hover .card-shine {
+  animation: card-shine 0.9s ease-out;
+}
