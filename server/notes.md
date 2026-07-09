@@ -35,3 +35,6 @@ patterns while building Rudra AI.
 This portfolio site's chatbot is itself a small RAG-style system — it answers
 using this file plus my resume data as context, the same pattern I used to
 build the RAG pipeline in Career Twin.
+
+## Hobbies
+Playing badminton, cooking, singing, And sketching or drawing
