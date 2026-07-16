@@ -21,8 +21,8 @@ export const education = [
   {
     school: "Dr. B. R. Ambedkar National Institute of Technology, Jalandhar",
     degree: "M.Tech, Machine Intelligence & Automation",
-    meta: "CGPA 8.45",
-    period: "2024 - 2026 (Expected)",
+    meta: "CGPA 8.68",
+    period: "2024 - 2026",
   },
   {
     school: "Shri Ramswaroop Memorial College of Engineering and Management, Lucknow",
@@ -40,7 +40,7 @@ export const achievements = [
   },
   {
     label: "CGPA",
-    value: "8.45",
+    value: "8.68",
     detail: "M.Tech, NIT Jalandhar",
   },
   {
@@ -61,7 +61,7 @@ export const experience = [
   {
     org: "Warner Bros. Discovery",
     role: "Software Engineering Intern",
-    period: "Sep 2025 - Present",
+    period: "Sep 2025 - July 2026",
     location: "Bengaluru, India",
     bullets: [
       "Designed, developed, and tested GraphQL and REST backend services using JavaScript and Node.js across production microservices.",
