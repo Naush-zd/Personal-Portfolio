@@ -76,7 +76,7 @@ export function Achievements() {
         <Reveal delay={0.1}>
           <StatCard
             icon={GraduationCap}
-            end={8.45}
+            end={8.68}
             decimals={2}
             suffix=" / 10"
             tag="cgpa"
